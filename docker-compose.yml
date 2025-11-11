@@ -1,0 +1,18 @@
+services:
+  udp-relay:
+    user: "0"
+    build: .
+    container_name: udp-relay
+    network_mode: "host"        
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
+    command:
+      [
+        "--id","1",
+        "--port","53317",
+        "--dev","eth0",           # add your interfaces
+        "--dev","eth3",		  # only adjust these	
+        "--multicast","224.0.0.167"
+      ]
