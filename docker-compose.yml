@@ -1,7 +1,7 @@
 services:
   udp-relay:
     user: "0"
-    build: .
+    image: ronaldzaz/localsend-udp-relay:latest
     container_name: udp-relay
     network_mode: "host"        
     cap_add:
